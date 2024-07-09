@@ -1,0 +1,57 @@
+<!-- projects/templates/projects/project_detail.html -->
+
+{% extends "base.html" %}
+
+{% block page_content %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">{{ project.project_title }}</h1>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card border-primary">
+                    <div class="card-body bg-light p-4">
+
+                        <p><strong>Project Institutions:</strong></p>
+                        <ul>
+                            {% for institution in project.institutions %}
+                            
+                                <li>{{ institution.role }}: {{ institution.name}}</li>
+                            {% endfor %}
+                        </ul> 
+                        <p><strong>Project Researchers:</strong></p>
+                        <ul>
+                            {% for researcher in project.researchers %}
+                            <li>{{ researcher.role }}: {{ researcher.name }}</li>
+                            {% endfor %}
+                        </ul>
+                        <p><strong>Research Grant:</strong> {{ project.dfg_verfahren}}</p>
+                        <p><strong>All Applicants:</strong></p>
+                        <ul>
+                            {% for person in project.antragstellende_mitverantwortliche %}
+                                <li>{{ person.name }}
+                            {% endfor %}
+                        </ul>                       
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card border-primary">
+                    <div class="card-body bg-light p-4">
+                        <h5 class="card-title">Applicant Details</h5>
+                        <p><strong>Applicant Name:</strong> 
+                            {{ project.applicant.name }}
+                        </p>
+                        <p><strong>Current Institution:</strong> 
+                            {{ project.applicant.Current_Inst }}
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock page_content %}
+
+
+

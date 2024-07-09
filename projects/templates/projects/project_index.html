@@ -1,0 +1,36 @@
+<!-- projects/templates/projects/project_index.html -->
+
+{% extends "base.html" %}
+
+{% block page_content %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Projects</h1>
+
+        <div class="row">
+            {% for project in projects %}
+                <div class="col-md-12 mb-4">
+                    <div class="card border-primary">
+                        <div class="card-body bg-light p-4">
+                            <h5 class="card-title">
+                                <a href="{% url 'project_detail' project.pk %}" style="text-decoration: none; color: #333;">
+                                    {{ project.project_title }}
+                                </a>
+                            </h5>
+                            <p class="card-text">
+                                <strong>DFG Process:</strong>
+                                {{ project.dfg_verfahren }}
+                            </p>
+                            <p class="card-text">
+                                <strong>Applicant:</strong>
+                                {{ project.applicant.name }}
+                            </p>
+                            <a href="{% url 'project_detail' project.pk %}" class="btn btn-outline-primary btn-sm">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

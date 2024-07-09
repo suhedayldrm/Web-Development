@@ -1,0 +1,28 @@
+<!-- webscraping_web/home.html -->
+{% extends "base.html" %}
+
+{% block page_content %}
+    <div class="container">
+        <div class="jumbotron mt-5">
+            <h1 class="display-4">Gepris Projects</h1>
+            <p class="lead">Explore or add projects</p>
+            <hr class="my-4">
+            <p>This is the home page for the Projects app.</p>
+                <p>Get started by checking out the following:</p>
+            <a class="btn btn-primary btn-lg" href="{% url 'project_index' %}" role="button">View All Projects</a>
+            <br>
+            <a class="btn btn-success btn-lg mt-3" href="{% url 'person_list' %}" role="button">View Researchers</a>
+
+            <!-- Adding search bar to home page, making it shorter and on the right -->
+            <form class="form-inline mt-3" action="{% url 'project_index' %}" method="get">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="john" style="width: 300px;">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+```
+
+
+
+

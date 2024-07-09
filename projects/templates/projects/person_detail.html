@@ -1,0 +1,42 @@
+<!-- projects/templates/projects/person_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">{{ person.name }}</h1>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card border-primary">
+                    <div class="card-body bg-light p-4">
+                        <h5 class="card-title
+                        ">Person Details</h5>
+                        <p><strong>Name:</strong> {{ person.name }}</p>
+                        <p><strong>Current Institution:</strong> {{ person.current_inst }}</p>
+
+                    
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card border-primary">
+                    <div class="card-body bg-light p-4">
+                        <h5 class="card-title
+                        ">Projects</h5>
+                        <ul>
+                            {% for x in person.projects.all %}
+                                <li>
+                                    {{ x}}
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock page_content %}
