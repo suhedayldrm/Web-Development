@@ -34,5 +34,3 @@ To ensure that your templates use the styles and structure defined in `base.html
 By extending `base.html`, you ensure that all your templates inherit the base structure, allowing for consistent styling and layout across your application.
 
 ---
-
-This README file provides a clear and concise guide for setting up and using `base.html` as a template for other HTML files in your project.
